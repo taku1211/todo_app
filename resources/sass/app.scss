@@ -7,6 +7,153 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-#app{
-  font-size: 30px;
+//================================
+//Base
+//================================
+body{
+  background: $background-color_default;
+  color: $font-color_default;
+  font-size: $font-size_default;
+  width: $site-width;
+  font-family: $font-family_base;
+  margin-left: auto;
+  margin-right: auto;
+}
+ul,p{
+  margin: 0;
+}
+a{
+  color: $font-color_default;
+  font-size: $font-size_default;
+  text-decoration: none;
+  &:hover{
+    color: $font-color-gray;
+  }
+}
+//================================
+//container
+//================================
+//header-container
+.header-container{
+  height: $site-height-header;
+  margin-bottom: $space_xl;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+//nav-container
+.nav-container{
+  margin-top: $space_l;
+  margin-bottom: $space_l;
+}
+//flex-container
+.flex-container{
+  width: 100%;
+  display: flex;
+}
+//main-container
+.main-container{
+  width: $site-width_main;
+  margin-left: $space_xxl;
+  margin-right: $space_xxl;
+}
+//side-container
+.side-container{
+  width: $site-width_aside;
+  margin-left: $space_xxl;
+  margin-right: $space_xxl
+}
+.todo-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $space_xl;
+}
+.grid-container{
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  align-items: center;
+  &-white{
+    background: #fff;
+    &:hover{
+      background: $font-color-gray;
+      //ふわっと浮き上がるアニメーションに変更
+    }
+  }
+}
+
+//================================
+//components
+//================================
+//title
+.title{
+  font-size: $font-size_xxl;
+  font-weight: bold;
+  &-header{
+    color: $font-color-pink;
+    font-family: $font-family_corp;
+    margin-top: $space_l;
+    margin-bottom: $space_l;
+    margin-left: $space_l;
+  }
+}
+.menu{
+  display: flex;
+  list-style: none;
+}
+.icon{
+  font-size: $font-size_xxl;
+  line-height:  $icon-size_l;
+  width: $icon-size_l;
+  text-align:center;
+  &-header{
+    font-size: $font-size_xl;
+    &:hover{
+    color: $font-color-gray;
+    }
+  }
+  &-white{
+    color: $icon-color_white;
+  }
+}
+//circle-area
+.circle-area{
+  width: $icon-size_l;
+  height: $icon-size_l;
+  border-radius: 50%;
+  margin-left: $space_xl;
+  margin-top : $space_xl;
+  &-blue{
+    background: $icon-color_blue;
+    }
+  &-red{
+    background: $icon-color_red;
+    }
+  &-orange{
+    background: $icon-color_orange;
+    }
+  &-gray{
+    background: $icon-color_gray;
+   }
+}
+//text
+.category-text{
+  font-size: $font-size_xl;
+  margin-top: $space_m;
+  margin-bottom: $space_m;
+  margin-left: $space_xl;
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+  padding-left: $space_s;
+  &-gray{
+    color: $font-color-gray;
+    }
+}
+.task-count-area{
+  margin-top: $space_l;
+  margin-right: $space_l;
+  font-size: $font-size_3l;
+  text-align: center;
+  font-weight: bold;
 }
