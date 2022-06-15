@@ -10,6 +10,7 @@ $line-height-base: 1.6;
 $font-color_default : #333;
 $font-color-gray : #CCC;
 $font-color-pink : #ffa0a7;
+$font-color-white : #fff;
 $background-color_default:#f6f5f4;
 
 $site-width: 980px;
@@ -26,6 +27,7 @@ $font-size_3l: 38px;
 
 
 $icon-size-default: 14px;
+$icon-size_m: 40px;
 $icon-size_l: 60px;
 $icon-color_blue: #5656ff;
 $icon-color_white: #fff;
@@ -34,6 +36,7 @@ $icon-color_orange:#FF9933;
 $icon-color_gray:#CCC;
 $site-height-header: 80px;
 
+$space_xs: 2px;
 $space_s: 5px;
 $space_m: 10px;
 $space_l: 15px;
@@ -43,3 +46,18 @@ $space_3l: 40px;
 
 $font-family_corp: 'Amatic SC', cursive;
 $font-family_base: 'Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro"';
+$font-family_title: 'Viga', sans-serif;
+
+//mixin変数
+$breakpoints: (
+    'sm' : 'screen and (max-width: 415px)',
+    'md' : 'screen and (max-width: 768px)',
+    'lg' : 'screen and (max-width: 1000px)',
+    'xl' : 'screen and (max-width: 1200px)',
+) !default;
+
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)}{
+    @content
+  }
+}
