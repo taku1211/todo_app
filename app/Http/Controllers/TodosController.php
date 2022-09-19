@@ -217,6 +217,8 @@ class TodosController extends Controller
         
         if(!empty($allTodoCounts->toArray())){
             return $allTodoCounts;
+        }else{
+            return [];
         }
         
     }
