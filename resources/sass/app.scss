@@ -1262,6 +1262,9 @@ th {
   margin-right: auto;
   margin-top: $space_5l;
   background: $background-color_default;
+  position: fixed;
+  top: 0;
+  left: 0;
   @include mq(pc){
     padding-left: 25%;
     padding-right: 25%;
