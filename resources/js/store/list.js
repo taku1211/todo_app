@@ -38,7 +38,7 @@ const actions = {
             fixedFlg: data.fixedFlg,
             deleteFlg: data.deleteFlg,
           }
-          console.log(newList)
+          //console.log(newList)
         context.commit('setApiStatus', null)
         const response = await axios.post('/api/registerList', newList)
 
@@ -66,7 +66,7 @@ const actions = {
             deleteFlg: data.deleteFlg,
           }
         context.commit('setApiStatus', null)
-        console.log(updateList)
+        //console.log(updateList)
         const response = await axios.post('/api/updateList', updateList)
 
         if(response.status === OK){

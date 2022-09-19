@@ -17,8 +17,8 @@ const getters = {
 }
 const mutations = {
     setUser(state, user){
-        console.log('setUser')
-        console.log(user)
+        //console.log('setUser')
+        //console.log(user)
         state.user = user
     },
     setApiStatus(state, status){
@@ -44,7 +44,7 @@ const actions = {
             password_confirmation: data.password_confirmation,
             
         }
-        console.log(newData)
+        //console.log(newData)
 
         context.commit('setApiStatus', null)
         const response = await axios.post('/api/register', newData)
@@ -69,10 +69,10 @@ const actions = {
             password:data.password,
             remember:data.checked,
         }
-        console.log(loginData)
-        context.commit('setApiStatus', null)
+        //console.log(loginData)
+        //context.commit('setApiStatus', null)
         const response = await axios.post('/api/login', loginData)
-        console.log(response.data)
+        //console.log(response.data)
 
         if(response.status === OK){
             context.commit('setApiStatus', true)
@@ -140,7 +140,7 @@ const actions = {
         const updateName = {
             name: data.userName,
         } 
-        console.log(updateName)
+        //console.log(updateName)
         const response = await axios.post('/api/updateName',updateName)
         if(response.status === OK){
             context.commit('setApiStatus', true)
@@ -162,7 +162,7 @@ const actions = {
         const updateEmail = {
             email: data.userEmail
         } 
-        console.log(updateEmail)
+        //console.log(updateEmail)
 
         const response = await axios.post('/api/updateEmail',updateEmail)
         if(response.status === OK){
