@@ -87,7 +87,7 @@ const actions = {
             const d = ("00" + dt.getDate()).slice(-2);
             const today = y + "-" + m +"-"+ d;
 
-            console.log(response)
+            
             
         if(response.status === OK){
             context.commit('setApiStatus', true)
