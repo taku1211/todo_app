@@ -214,8 +214,11 @@ class TodosController extends Controller
             ['user_id', '=', $id],
             ['delete_flg', '=',false],
         ])->get();
-
-        return $allTodoCounts;
+        
+        if(!empty($allTodoCounts->toArray())){
+            return $allTodoCounts;
+        }
+        
     }
     public function updateName(Request $request)
     {
