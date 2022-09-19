@@ -72,7 +72,7 @@ const router = new VueRouter({
         component:HomeMainComponent,
         beforeEnter(to, from, next){
           if(store.getters['auth/check']){
-            console.log('kokodayo ')
+            //console.log('kokodayo ')
             next()
           }else{
             next('/')
@@ -147,8 +147,8 @@ const router = new VueRouter({
           const userList = list.filter(function(object){
           return object.id === listId
           })
-          console.log('ここだよ')
-          console.log(userList)
+          //console.log('ここだよ')
+          //console.log(userList)
           if(userList.length === 0){
             next('/home')
           }else{

@@ -228,7 +228,7 @@ import HomeAccountComponent from "./HomeAccountComponent"
   mounted: async function(){
     await this.$store.dispatch('category/getAllCategorys')
     this.indexAllCategorys = this.$store.getters['category/indexAllCategorys']
-    console.log(this.indexAllCategorys)
+    //console.log(this.indexAllCategorys)
     this.showTransition = true
   },
   beforeRouteLeave(to,from,next){
@@ -238,7 +238,7 @@ import HomeAccountComponent from "./HomeAccountComponent"
     },0)
   },
   created: async function(){
-    console.log('create')
+    //console.log('create')
      await this.$store.dispatch('todo/count')
      await this.$store.dispatch('list/getAllLists')
      this.allTodoCounts = this.$store.getters['todo/allTodoCounts']
@@ -249,7 +249,7 @@ import HomeAccountComponent from "./HomeAccountComponent"
      this.countTodoPerList()
   },
   beforeUpdate: function(){
-    console.log('home beforeupdate')
+    //console.log('home beforeupdate')
      this.allTodoCounts = this.$store.getters['todo/allTodoCounts']
      this.todayTodoCounts = this.$store.getters['todo/todayTodoCounts']
      this.scheduledTodoCounts = this.$store.getters['todo/scheduledTodoCounts']
@@ -260,9 +260,9 @@ import HomeAccountComponent from "./HomeAccountComponent"
   watch:{
     indexAllLists:{
       handler:function(newData,oldData){
-      console.log('watchLIST')
-      console.log(oldData)
-      console.log(newData)
+      //console.log('watchLIST')
+      //console.log(oldData)
+      //console.log(newData)
       this.indexAllLists = newData
     },
     deep:true,
@@ -270,7 +270,7 @@ import HomeAccountComponent from "./HomeAccountComponent"
    },
    allTodoCounts:{
     handler:function(oldData,newData){
-      console.log('watchTODO')
+      //console.log('watchTODO')
       this.allTodoCounts = this.$store.getters['todo/allTodoCounts']
       this.todayTodoCounts = this.$store.getters['todo/todayTodoCounts']
       this.scheduledTodoCounts = this.$store.getters['todo/scheduledTodoCounts']
@@ -283,7 +283,7 @@ import HomeAccountComponent from "./HomeAccountComponent"
    },
    indexList:{
       handler:function(oldData,newData){
-        console.log('state.listchange')
+        //console.log('state.listchange')
         this.indexAllLists = this.$store.getters['list/indexAllLists']
       },
       deep:true,
@@ -291,7 +291,7 @@ import HomeAccountComponent from "./HomeAccountComponent"
     },
     allTodo:{
       handler:function(oldData,newData){
-        console.log('state.alltodo change')
+        //console.log('state.alltodo change')
         this.allTodoCounts = this.$store.getters['todo/allTodoCounts']
         this.todayTodoCounts = this.$store.getters['todo/todayTodoCounts']
         this.scheduledTodoCounts = this.$store.getters['todo/scheduledTodoCounts']

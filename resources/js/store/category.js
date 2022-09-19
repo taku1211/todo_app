@@ -23,10 +23,10 @@ const mutations = {
         state.registerErrorMessages = messages
     },
     setList(state, list){
-        console.log('setList')
-        console.log(list)
+        //console.log('setList')
+        //console.log(list)
         state.listId = list
-        console.log(state.listId) 
+        //console.log(state.listId) 
     },
     setIndexAllCategorys(state,categorys){
         state.indexAllCategorys = categorys
@@ -34,7 +34,7 @@ const mutations = {
 }
 const actions = {
    async register(context, data){
-        console.log(data)
+        //console.log(data)
         const newCategory = {
             name: data.name,
             userId: data.userId,
@@ -43,7 +43,7 @@ const actions = {
             fixedFlg: data.fixedFlg,
             deleteFlg: data.deleteFlg,
         }
-        console.log(newCategory)
+        //console.log(newCategory)
         context.commit('setApiStatus', null)
         const response = await axios.post('/api/registerCategory', newCategory)
 
@@ -62,7 +62,7 @@ const actions = {
         }
     },
     async update(context, data){
-        console.log(data)
+        //console.log(data)
         const updateCategory = {
             id:data.id,
             name: data.name,
@@ -112,7 +112,7 @@ const actions = {
         
     },
    async selectList(context,data){
-        console.log(data)
+        //console.log(data)
         await context.commit('setList',data)
         
    },
@@ -120,8 +120,8 @@ const actions = {
     context.commit('setApiStatus',null)
     const response = await axios.post('/api/allCategorys')
 
-    console.log('response')
-    console.log(response.data)
+    //console.log('response')
+    //console.log(response.data)
 
     if(response.status === OK){
         for(let i = 0; i<response.data.length; i++ ){

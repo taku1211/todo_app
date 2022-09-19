@@ -163,10 +163,10 @@ export default{
                 }
         },
         async updateUserName(){
-            console.log(this.updateForm.name)
+            //console.log(this.updateForm.name)
             await this.$store.dispatch('auth/updateName',{userName:this.updateForm.name})
             if(this.apiStatus){
-                console.log('OK')
+                //console.log('OK')
                 this.$store.commit('message/setContent', {
                               content: 'ユーザー名の変更が完了しました。',
                               timeout: 2000
@@ -176,7 +176,7 @@ export default{
             }
         },
         async updateUserEmail(){
-            console.log(this.updateForm.email)
+            //console.log(this.updateForm.email)
             await this.$store.dispatch('auth/updateEmail',{userEmail:this.updateForm.email})
             if(this.apiStatus){
                 this.$store.commit('message/setContent', {
@@ -188,7 +188,7 @@ export default{
             }
         },
         async updateUserPassword(){
-            console.log(this.updateForm)
+            //console.log(this.updateForm)
             await this.$store.dispatch('auth/updatePassword',this.updateForm)
                 if(this.apiStatus){
                     this.$store.commit('message/setContent', {

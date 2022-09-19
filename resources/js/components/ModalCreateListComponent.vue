@@ -209,12 +209,12 @@
         },
         updateName(){
           if(this.editListName != ''){
-            console.log('はいった')
+            //console.log('はいった')
             this.createList.name = this.editListName
-            console.log(this.createList.name)
+            //console.log(this.createList.name)
             return this.createList.name
           }else{
-            console.log('はいってない')
+            //console.log('はいってない')
             return false
           }
         },
@@ -223,12 +223,12 @@
         },
         updateColor(){
           if(this.editListColor != ''){
-            console.log('はいった')
+            //console.log('はいった')
             this.selectIconColor = this.editListColor
-            console.log(this.selectIconColor)
+            //console.log(this.selectIconColor)
             return this.selectIconColor
           }else{
-            console.log('はいってない')
+            //console.log('はいってない')
             return false
           }
         },        
@@ -245,7 +245,7 @@
         },
       },
       mounted:function(){
-        console.log('mounted')
+        //console.log('mounted')
         this.updateName()
         this.updateColor()
 
@@ -257,7 +257,7 @@
 
       },
       beforeupdate:function(){
-        console.log('beforeupdate')
+        //console.log('beforeupdate')
         this.updateName()
       } , 
       components: {

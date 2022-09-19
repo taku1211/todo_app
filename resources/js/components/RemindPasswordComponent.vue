@@ -92,10 +92,10 @@ export default{
             this.$emit('close')
         },
         async forgetPassword(){
-            console.log(this.updateForm)
+            //console.log(this.updateForm)
             await this.$store.dispatch('auth/forgetPassword',this.updateForm)
             if(this.apiStatus){
-                console.log('OK')
+                //console.log('OK')
                 this.$store.commit('message/setContent', {
                               content: 'パスワードを再設定しました。',
                               timeout: 5000
