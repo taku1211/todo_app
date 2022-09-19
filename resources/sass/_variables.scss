@@ -11,12 +11,17 @@ $font-color_default : #333;
 $font-color-gray : #CCC;
 $font-color-pink : #ffa0a7;
 $font-color-white : #fff;
+$font-color_blue: #5656ff;
 $background-color_default:#f6f5f4;
+$background-color_white:#fff;
+$background-color_gray:#EEEEEE;
+$background-color_black:#111;
 
 $site-width: 980px;
 $site-width_main: 70%;
 $site-width_aside: 30%;
 
+$font-size_xs: 8px;
 $font-size_s: 12px;
 $font-size_m: 14px;
 $font-size_default: 16px;
@@ -27,6 +32,8 @@ $font-size_3l: 38px;
 
 
 $icon-size-default: 14px;
+$icon-size_xs: 12px;
+$icon-size_s: 20px;
 $icon-size_m: 40px;
 $icon-size_l: 60px;
 $icon-color_blue: #5656ff;
@@ -34,6 +41,18 @@ $icon-color_white: #fff;
 $icon-color_red: #CC3333;
 $icon-color_orange:#FF9933;
 $icon-color_gray:#CCC;
+$icon-color-purple:#CC6699;
+$icon-color-pink:#FF99CC;
+$icon-color-yellow:#FFF700;
+$icon-color-green:#66FF33;
+$icon-color-sky:#99FFFF;
+$icon-color-black:#330033;
+$icon-color-brown:#996633;
+$icon-color-peach:#FFAD90;
+$icon-color-lightgreen:#00F300;
+$icon-color-tomato:#F15B55;
+$icon-color-silver:#A1A3A6;
+
 $site-height-header: 80px;
 
 $space_xs: 2px;
@@ -43,6 +62,8 @@ $space_l: 15px;
 $space_xl: 20px;
 $space_xxl: 30px;
 $space_3l: 40px;
+$space_4l: 60px;
+$space_5l: 100px;
 
 $font-family_corp: 'Amatic SC', cursive;
 $font-family_base: 'Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro"';
@@ -51,9 +72,9 @@ $font-family_title: 'Viga', sans-serif;
 //mixin変数
 $breakpoints: (
     'sm' : 'screen and (max-width: 415px)',
-    'md' : 'screen and (max-width: 768px)',
-    'lg' : 'screen and (max-width: 1000px)',
-    'xl' : 'screen and (max-width: 1200px)',
+    'md' : 'screen and (max-width: 767px)',
+    'tab' : 'screen and (min-width: 768px)',
+    'pc' : 'screen and (min-width: 1025px)',
 ) !default;
 
 @mixin mq($breakpoint: md) {
