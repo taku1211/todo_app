@@ -19,10 +19,12 @@ body,html{
   margin-left: auto;
   margin-right: auto;
   @include mq(){
+    max-width: 100%;
     width: 100%;
     font-size: $font-size_s;
   }
   @include mq(tab){
+    max-width: 100%;
     width: 100%;
   }
   @include mq(pc){
