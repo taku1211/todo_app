@@ -357,6 +357,7 @@ textarea{
     bottom: -5px;
     padding-bottom: 5px;
     z-index: 5;
+    height: -webkit-fill-available;
   }
   @include mq(tab){
     display: block;
@@ -364,6 +365,7 @@ textarea{
     bottom: -5px;
     padding-bottom: 5px;
     z-index: 5;
+    height: -webkit-fill-available;
   }
   @include mq(pc){
     width: 7%;
@@ -1302,8 +1304,8 @@ th {
   }
 }
 .account-container{
-  height: 150%;
-  max-height:150%;
+  height: 100%;
+  height: -webkit-fill-available;
   width: 100%;
   z-index: 7;
   opacity: 1;

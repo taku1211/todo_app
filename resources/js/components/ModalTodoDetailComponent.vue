@@ -57,7 +57,7 @@
                     placeholder="Select time">
                   </el-time-select>
             </div> 
-
+<!--
             <div class="modal-item area-hover">
                <div class="list-item-left">
                  <div class="square-area square-area-list square-area-gray">
@@ -116,7 +116,7 @@
                  </div>
                </div>
             </div>
-
+-->
         </div>
         
 </template>
