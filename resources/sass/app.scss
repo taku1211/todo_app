@@ -91,7 +91,7 @@ textarea{
 //================================
 .body-container{
   margin-bottom: 100px;
-  height: 98%;
+  height: 100vh;
   @include mq(pc){
     width: 93%;
     max-width: 93%;
