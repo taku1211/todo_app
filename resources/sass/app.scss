@@ -19,10 +19,12 @@ body,html{
   margin-left: auto;
   margin-right: auto;
   @include mq(){
+    max-width: 100%;
     width: 100%;
     font-size: $font-size_s;
   }
   @include mq(tab){
+    max-width: 100%;
     width: 100%;
   }
   @include mq(pc){
@@ -54,6 +56,7 @@ label, input[type='checkbox'] {
   cursor: pointer;
 }
 input[type="text"] {
+  font-size: $font-size_default;
   border: 0;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
   cursor: pointer;
@@ -63,6 +66,7 @@ input[type="text"]:focus {
   outline: 0;
 }
 input[type="password"] {
+  font-size: $font-size_default;
   border: 0;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
   cursor: pointer;
@@ -353,6 +357,7 @@ textarea{
     bottom: -5px;
     padding-bottom: 5px;
     z-index: 5;
+    height: -webkit-fill-available;
   }
   @include mq(tab){
     display: block;
@@ -360,6 +365,7 @@ textarea{
     bottom: -5px;
     padding-bottom: 5px;
     z-index: 5;
+    height: -webkit-fill-available;
   }
   @include mq(pc){
     width: 7%;
@@ -1149,7 +1155,7 @@ textarea{
 .searchbox{
   height: 30px;
   width: calc(100% - 40px);
-  font-size: $font-size_m;
+  font-size: $font-size_default;
   border: 0 !important;
   box-shadow: none !important;
   &:focus{
@@ -1260,6 +1266,9 @@ th {
   margin-right: auto;
   margin-top: $space_5l;
   background: $background-color_default;
+  position: fixed;
+  top: 0;
+  left: 0;
   @include mq(pc){
     padding-left: 25%;
     padding-right: 25%;
@@ -1269,8 +1278,7 @@ th {
     position: fixed;
     top: 0;
     left: 0;
-    
-  }
+  }  
 }
 .tab{
   display: flex;
@@ -1296,8 +1304,8 @@ th {
   }
 }
 .account-container{
-  height: 150%;
-  max-height:150%;
+  height: 100%;
+  height: -webkit-fill-available;
   width: 100%;
   z-index: 7;
   opacity: 1;

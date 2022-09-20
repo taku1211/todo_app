@@ -51,7 +51,7 @@ Route::post('/deleteTodoRelateList',[App\Http\Controllers\TodosController::class
 Route::get('/lists', [App\Http\Controllers\TodosController::class, 'indexList'])->name('indexList');
 Route::post('/categorys', [App\Http\Controllers\TodosController::class, 'indexCategory'])->name('indexCategory');
 Route::post('/allCategorys', [App\Http\Controllers\TodosController::class, 'indexAllCategorys'])->name('indexAllCategorys');
-Route::post('/countAllTodo', [App\Http\controllers\TodosController::class, 'countAllTodo'])->name('countAllTodo');
+Route::post('/countAllTodo', [App\Http\Controllers\TodosController::class, 'countAllTodo'])->name('countAllTodo');
 
 /*tokenリセット */
 Route::get('/reflesh-token', function (Illuminate\Http\Request $request) {

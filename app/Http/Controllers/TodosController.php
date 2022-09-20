@@ -215,7 +215,8 @@ class TodosController extends Controller
             ['delete_flg', '=',false],
         ])->get();
 
-        return $allTodoCounts;
+         return $allTodoCounts;
+        
     }
     public function updateName(Request $request)
     {
