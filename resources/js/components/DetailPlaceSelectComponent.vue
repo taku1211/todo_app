@@ -13,7 +13,7 @@
             <div class="modal-item modal-item-first area-hover padding-15">
               <GmapAutocomplete
                  @place_changed='setPlace'
-                 style="width:100%"
+                 style="width:100%;font-size:16px;"
                  :options="{fields: ['geometry', 'formatted_address', 'name']}"
               />
             </div>
