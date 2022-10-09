@@ -23,6 +23,7 @@ import './bootstrap'
 
 import Vue from 'vue';
 import store from './store'
+import * as VueGoogleMaps from 'vue2-google-maps'
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -39,7 +40,15 @@ const i18n = new VueI18n({
   }
 });
 
-
+//Google MAP API設定
+Vue.use(VueGoogleMaps, {
+  load: {
+    key:'AIzaSyCOpcYukoUH1HWzNnXhPtpsSbpeb8MZrso',
+    libraries: 'places',
+    region: 'places',
+    language: 'ja'
+  }
+})
 
 //Vue.jsライブラリの使用宣言
 Vue.use(VueRouter);
