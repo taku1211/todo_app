@@ -135,7 +135,7 @@
           
          <div class="search-box-container">
            <i class="fa fa-search icon icon-search" aria-hidden="true"></i>
-           <input type="text" class="searchbox" v-model="searchText" @keydown="search(searchText)" placeholder="絞り込みたいキーワードを入力" >
+           <input type="text" class="searchbox" v-model="searchText" @input="search(searchText)" placeholder="絞り込みたいキーワードを入力" >
          </div>
 <!--すべてのTODOリストの一覧表示-->
          <div class="item-container"  v-if="listTypeSelect === 'list' || url === '/list'">
