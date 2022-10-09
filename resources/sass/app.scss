@@ -52,10 +52,18 @@ a{
 }
 img{
   width: 100%;
-  border-radius: 50%;
+  
+}
+.todo-img{
+  border-radius: 0%;
+  padding-left: $space_s;
+  padding-right: $space_s;
 }
 label, input[type='checkbox'] {
   cursor: pointer;
+}
+input[type="file"] {
+  display:none;
 }
 input[type="text"] {
   font-size: $font-size_default;
@@ -140,7 +148,6 @@ textarea{
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
   @include mq(pc){
     margin-left: auto;
     margin-right: auto;
@@ -248,7 +255,7 @@ textarea{
   }
 }
 .list-container{
-  margin-bottom: $space_xxl;
+  margin-bottom: 150px;
   &-select-page{
     margin-top: $space_xxl;
   }
@@ -344,7 +351,7 @@ textarea{
 
 }
 .item-container{
-  margin-bottom: $space_l;
+  margin-bottom: 100px;
 }
 .footer-container{
   background: $background-color_default;
@@ -358,14 +365,14 @@ textarea{
     position: fixed;
     bottom: -5px;
     padding-bottom: 5px;
-    z-index: 5;
+    //z-index: 5;
   }
   @include mq(tab){
     display: block;
     position: fixed;
     bottom: -5px;
     padding-bottom: 5px;
-    z-index: 5;
+    //z-index: 5;
   }
   @include mq(pc){
     width: 7%;
@@ -374,7 +381,7 @@ textarea{
     position: fixed;
     top: $site-height-header;
     left: 0;
-    z-index: 5;
+    //z-index: 5;
     padding-top: 0;
   }
 }
@@ -422,6 +429,9 @@ textarea{
   }
   &-detail, &-list{
     z-index: 7;
+  }
+  &-detail-priority{
+    z-index: 9;
   }
   &-create-list{
     z-index: 9;
@@ -642,6 +652,11 @@ textarea{
     font-size: $font-size_l;
     width: $icon-size_m;
     line-height: $icon-size_m;
+  }
+  &-m{
+    font-size: $font-size_l;
+    width:30px;
+    line-height: 30px;
   }
   &-sm{
     @include mq(pc){
@@ -873,7 +888,6 @@ textarea{
   }
   &-gray{
     color: $font-color-gray;
-    cursor: not-allowed !important;
     }
   &-blue{
     color: $font-color_blue;
@@ -1227,6 +1241,14 @@ th {
   color: red;
   font-weight: bold;
 }
+.space-between-s{
+  padding-left: $space_s;
+  padding-right: $space_s;
+}
+.padding-15{
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .text-hover,a{
   font-weight: normal;
   &:hover{
@@ -1257,6 +1279,9 @@ th {
 .button-invalid{
   cursor: not-allowed !important;
   background-color: $icon-color_gray;
+}
+.not-pointer{
+  cursor: not-allowed !important;
 }
 //==========================================
 //ログイン画面
@@ -1384,6 +1409,11 @@ th {
       padding-right: $space_m;
     }
   }
+}
+.file-form{
+  color: $font-color-gray;
+  cursor: pointer;
+  
 }
 
 

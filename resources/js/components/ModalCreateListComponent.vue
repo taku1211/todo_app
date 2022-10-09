@@ -16,9 +16,9 @@
             </div>
             <div class="nav-right">
                 <input v-if="editListFlg == false" class="text-nav" type="submit" name="" value="追加" 
-                :disabled="createList.name === ''" :class="createList.name === '' ? 'text-gray' : 'text-blue'"> 
+                :disabled="createList.name === ''" :class="createList.name === '' ? 'text-gray not-pointer' : 'text-blue'"> 
                 <input v-else-if="editListFlg == true" class="text-nav" type="submit" name="" value="更新" 
-                :disabled="createList.name === ''" :class="createList.name === '' ? 'text-gray' : 'text-blue'">
+                :disabled="createList.name === ''" :class="createList.name === '' ? 'text-gray not-pointer' : 'text-blue'">
             </div>
           </div>
 
