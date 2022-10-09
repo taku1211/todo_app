@@ -43,7 +43,8 @@ const i18n = new VueI18n({
 //Google MAP API設定
 Vue.use(VueGoogleMaps, {
   load: {
-    key:'AIzaSyCOpcYukoUH1HWzNnXhPtpsSbpeb8MZrso',
+    //key:'AIzaSyCOpcYukoUH1HWzNnXhPtpsSbpeb8MZrso',
+    key:process.env.MIX_APP_MAP_API_KEY,
     libraries: 'places',
     region: 'places',
     language: 'ja'
