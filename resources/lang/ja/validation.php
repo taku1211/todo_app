@@ -121,7 +121,7 @@ return [
     'string'               => ':attributeは文字列を指定してください。',
     'timezone'             => ':attributeには、有効なゾーンを指定してください。',
     'unique'               => 'この:attributeはすでに使用されています。',
-    'uploaded'             => ':attributeのアップロードに失敗しました。',
+    'uploaded'             => 'アップロードに失敗しました。:attributeは2MB以下までです。',
     'url'                  => ':attributeに正しい形式を指定してください。',
     'uuid'                 => ':attributeに有効なUUIDを指定してください。',
 
@@ -158,6 +158,7 @@ return [
         'email' => 'メールアドレス',
         'password' =>'パスワード',
         'currentPassword' =>'現在のパスワード',
+        'fileName' => '画像'
     ],
 
 ];

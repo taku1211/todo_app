@@ -81,17 +81,17 @@ const actions = {
         context.commit('setApiStatus', null)
         const response = await axios.post('/api/countAllTodo')
         
-            const dt = new Date();
-            const y = dt.getFullYear();
-            const m = ("00" + (dt.getMonth()+1)).slice(-2);
-            const d = ("00" + dt.getDate()).slice(-2);
-            const today = y + "-" + m +"-"+ d;
+        //今日の日付を取得
+        const dt = new Date();
+        const day = dt.getDay()
+        const y = dt.getFullYear();
+        const m = ("00" + (dt.getMonth()+1)).slice(-2);
+        const d = ("00" + dt.getDate()).slice(-2);
+        const today = y + "-" + m +"-"+ d;
 
-            
-            
         if(response.status === OK){
             context.commit('setApiStatus', true)
-            context.commit('setIndexAllTodo',response.data)         
+            context.commit('setIndexAllTodo',response.data)
 
             const allData = response.data.filter(function(object){
                 if(object.delete_flg == false && object.complete_flg == false){
@@ -133,38 +133,98 @@ const actions = {
         }
     },
     async register(context, data){
-        const newTodo = {
-            name: data.name,
-            userId: data.userId,
-            listId: data.listId,
-            categoryId: data.categoryId,
-            detail: data.detail,
-            todoDate: data.todoDate,
-            todoTime: data.todoTime,
-            cycle: data.cycle,
-            place: data.place,
-            priority: data.priority,
-            fileName: data.fileName,
-        }
-        context.commit('setApiStatus', null)
-        const response = await axios.post('/api/registerTodo', newTodo)
-
-        if(response.status === OK){
-            context.commit('setApiStatus', true)
-            context.commit('setTodo', response.data)
-            return false
-        }
-        context.commit('setApiStatus', false)
-
-        if(response.status === UNPROCESSABLE_ENTITY){
-            context.commit('setRegisterErrorMessages', response.data.errors)
+        if(data.fileName !== ""){
+//            const newTodo = {
+//                name: data.name,
+//                userId: data.userId,
+//                listId: data.listId,
+//                categoryId: data.categoryId,
+//                detail: data.detail,
+//                todoDate: data.todoDate,
+//                todoTime: data.todoTime,
+//                cycle: data.cycle,
+//                place: data.place,
+//                priority: data.priority,
+//            }
             
+            const formData = new FormData()
+            formData.append('fileName',data.fileName)
+            formData.append('name',data.name)
+            formData.append('userId',data.userId)
+
+            if(data.listId !== null) {
+                formData.append('listId',data.listId)
+            }else{
+                formData.append('listId', '')
+            }
+            if(data.categoryId !== null){
+                formData.append('categoryId',data.categoryId)
+            }else{
+                formData.append('categoryId','')
+            }
+            
+            formData.append('detail',data.detail)
+            formData.append('todoDate',data.todoDate)
+            formData.append('todoTime',data.todoTime)
+            formData.append('cycle',data.cycle)
+            formData.append('place',data.place)
+            formData.append('priority',data.priority)
+
+            context.commit('setApiStatus', null)
+            let config = {headers:{
+                'Content-Type' : 'multipart/form-data'
+            }}
+            const response = await axios.post('/api/registerTodoWithImg', formData, config )
+            if(response.status === OK || response.status === 201){
+                context.commit('setApiStatus', true)
+                context.commit('setTodo', response.data)
+                return false
+            }
+            context.commit('setApiStatus', false)
+
+            if(response.status === UNPROCESSABLE_ENTITY){
+                context.commit('setRegisterErrorMessages', response.data.errors)
+                
+            }else{
+                context.commit('error/setCode', response.status, {root:true})
+            }
+
         }else{
-            context.commit('error/setCode', response.status, {root:true})
+            const newTodo = {
+                name: data.name,
+                userId: data.userId,
+                listId: data.listId,
+                categoryId: data.categoryId,
+                detail: data.detail,
+                todoDate: data.todoDate,
+                todoTime: data.todoTime,
+                cycle: data.cycle,
+                place: data.place,
+                priority: data.priority,
+                fileName: data.fileName,
+            }
+            context.commit('setApiStatus', null)
+            const response = await axios.post('/api/registerTodo', newTodo)
+
+        
+            if(response.status === OK || response.status === 201){
+                context.commit('setApiStatus', true)
+                context.commit('setTodo', response.data)
+                return false
+            }
+            context.commit('setApiStatus', false)
+
+            if(response.status === UNPROCESSABLE_ENTITY){
+                context.commit('setRegisterErrorMessages', response.data.errors)
+                
+            }else{
+                context.commit('error/setCode', response.status, {root:true})
+            }
         }
     },
 
     async update(context, data){
+
         const updateTodo = {
             id: data.id,
             name: data.name,
@@ -177,7 +237,7 @@ const actions = {
             cycle: data.cycle,
             place: data.place,
             priority: data.priority,
-            fileName: data.filename,
+            fileName: data.fileName,
             completeFlg: data.complete_flg,
             deleteFlg:data.delete_flg,
             fixedFlg:data.fixed_flg,
@@ -200,39 +260,93 @@ const actions = {
         }
     },
     async edit(context, data){
-        const editTodo = {
-            id: data.id,
-            name: data.name,
-            userId: data.userId,
-            listId: data.listId,
-            categoryId: data.categoryId,
-            detail: data.detail,
-            todoDate: data.todoDate,
-            todoTime: data.todoTime,
-            cycle: data.cycle,
-            place: data.place,
-            priority: data.priority,
-            fileName: data.filename,
-            completeFlg: data.completeFlg,
-            deleteFlg:data.deleteFlg,
-            fixedFlg:data.fixedFlg,
-        }
-        context.commit('setApiStatus', null)
-        const response = await axios.post('/api/updateTodo', editTodo)
+        if(typeof(data.fileName) === 'object' && data.fileName !== null){
+            const formData = new FormData()
+            formData.append('fileName',data.fileName)
+            formData.append('name',data.name)
+            formData.append('userId',data.userId)
 
-        if(response.status === OK){
-            context.commit('setApiStatus', true)
-            context.commit('setTodo', response.data)
-            return false
-        }
-        context.commit('setApiStatus', false)
-
-        if(response.status === UNPROCESSABLE_ENTITY){
-            context.commit('setRegisterErrorMessages', response.data.errors)
+            if(data.listId !== null) {
+                formData.append('listId',data.listId)
+            }else{
+                formData.append('listId', '')
+            }
+            if(data.categoryId !== null){
+                formData.append('categoryId',data.categoryId)
+            }else{
+                formData.append('categoryId','')
+            }
             
-        }else{
-            context.commit('error/setCode', response.status, {root:true})
+            formData.append('detail',data.detail)
+            formData.append('todoDate',data.todoDate)
+            formData.append('todoTime',data.todoTime)
+            formData.append('cycle',data.cycle)
+            formData.append('place',data.place)
+            formData.append('priority',data.priority)
+            formData.append('deleteFlg',data.deleteFlg)
+            formData.append('completeFlg',data.completeFlg)
+            formData.append('fixedFlg',data.fixedFlg)
+            formData.append('databaseImg',data.databaseImg)
+            formData.append('id',data.id)
+
+
+            context.commit('setApiStatus', null)
+            let config = {headers:{
+                'Content-Type' : 'multipart/form-data'
+            }}
+            const response = await axios.post('/api/updateTodoWithImg', formData, config )
+            if(response.status === OK || response.status === 201){
+                context.commit('setApiStatus', true)
+                context.commit('setTodo', response.data)
+                return false
+            }
+            context.commit('setApiStatus', false)
+
+            if(response.status === UNPROCESSABLE_ENTITY){
+                context.commit('setRegisterErrorMessages', response.data.errors)
+                
+            }else{
+                context.commit('error/setCode', response.status, {root:true})
+            }
+
+
+        }else if(typeof(data.fileName) === 'string' || data.fileName === null){
+            const editTodo = {
+                id: data.id,
+                name: data.name,
+                userId: data.userId,
+                listId: data.listId,
+                categoryId: data.categoryId,
+                detail: data.detail,
+                todoDate: data.todoDate,
+                todoTime: data.todoTime,
+                cycle: data.cycle,
+                place: data.place,
+                priority: data.priority,
+                fileName: data.fileName,
+                completeFlg: data.completeFlg,
+                deleteFlg:data.deleteFlg,
+                fixedFlg:data.fixedFlg,
+            }
+            context.commit('setApiStatus', null)
+            const response = await axios.post('/api/updateTodo', editTodo)
+    
+            if(response.status === OK){
+                context.commit('setApiStatus', true)
+                context.commit('setTodo', response.data)
+                return false
+            }
+            context.commit('setApiStatus', false)
+    
+            if(response.status === UNPROCESSABLE_ENTITY){
+                context.commit('setRegisterErrorMessages', response.data.errors)
+                
+            }else{
+                context.commit('error/setCode', response.status, {root:true})
+            }
+    
         }
+
     },
     
     registerListType(context, data){

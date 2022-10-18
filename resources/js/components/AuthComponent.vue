@@ -1,5 +1,8 @@
 <template>
+  <div>
+    
     <div class="auth-container">
+        
         <ul class="tab">
             <li  class="tab-item" @click="changeToLogin" :class=" tab === 1 ? 'tab-item-selected' : ''">Login</li>
             <li class="tab-item" @click="changeToRegister" :class=" tab === 2 ? 'tab-item-selected' : ''">Register</li>
@@ -79,6 +82,7 @@
         <RemindPasswordComponent v-if="showRemindPassword" @close="closeRemindPassword"></RemindPasswordComponent>
     
     </div>
+  </div>
 
 </template>
 
@@ -104,6 +108,7 @@ export default {
                 password_confirmation: '',
             },
             showRemindPassword:false,
+            loading:true,
         }
     },
     methods: {
@@ -126,6 +131,7 @@ export default {
             this.clearData()
         },
         async login(){
+            this.loading = true;
             await this.$store.dispatch('auth/login', this.loginForm)
           
 
@@ -144,7 +150,7 @@ export default {
             }
         },
         async register(){
-            
+            this.loading = true;
             await this.$store.dispatch('auth/register', this.registerForm)
 
             if(this.apiStatus){

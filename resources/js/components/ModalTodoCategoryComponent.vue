@@ -14,7 +14,7 @@
           </div>
           <div class="nav-right">
             <p class="text-nav text-hidden" v-if="!updateCategoryFlg">追加する</p>
-            <p class="text-nav" v-else-if="updateCategoryFlg" @click="updateCategory" :class="createCategory.name === '' ? 'text-gray' : 'text-blue'">更新する</p>
+            <p class="text-nav" v-else-if="updateCategoryFlg" @click="updateCategory" :class="createCategory.name === '' ? 'text-gray not-pointer' : 'text-blue'">更新する</p>
           </div>
       </div>
             

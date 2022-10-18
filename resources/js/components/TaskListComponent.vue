@@ -109,7 +109,14 @@
               <div class="list-item-left list-item-left-left-margin">・TODO名降順</div>
               <div class="list-item-right"><i class="fa-solid fa-highlighter icon icon-hidden"></i></div>
             </div>
-
+            <div class="list-item list-item-no-padding" v-if="showTodoOrder == true" @click="changeOrderRule(priorityUp)">
+              <div class="list-item-left list-item-left-left-margin">・優先度が高い順</div>
+              <div class="list-item-right"><i class="fa-solid fa-highlighter icon icon-hidden"></i></div>
+            </div>
+            <div class="list-item list-item-no-padding" v-if="showTodoOrder == true" @click="changeOrderRule(priorityDown)">
+              <div class="list-item-left list-item-left-left-margin">・優先度が低い順</div>
+              <div class="list-item-right"><i class="fa-solid fa-highlighter icon icon-hidden"></i></div>
+            </div>
             <div class="list-item list-item-no-padding" @click="toggleTodoDoneShow" v-if="!showTodoDone">
               <div class="list-item-left list-item-left-left-margin">実行済みを表示</div>
               <div class="list-item-right"><i class="fa-solid fa-eye icon"></i></div>
@@ -128,7 +135,7 @@
           
          <div class="search-box-container">
            <i class="fa fa-search icon icon-search" aria-hidden="true"></i>
-           <input type="text" class="searchbox" v-model="searchText" @keyup="search(searchText)" placeholder="絞り込みたいキーワードを入力" >
+           <input type="text" class="searchbox" v-model="searchText" @input="search(searchText)" placeholder="絞り込みたいキーワードを入力" >
          </div>
 <!--すべてのTODOリストの一覧表示-->
          <div class="item-container"  v-if="listTypeSelect === 'list' || url === '/list'">
@@ -737,6 +744,8 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
            createDown:5,
            nameUp:6,
            nameDown:7,
+           priorityUp:8,
+           priorityDown:9,
            sortIndexAllTodo:[],
            fixedIndexAllTodo:[],
            url:this.$route.path,
@@ -811,7 +820,18 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
             this.indexAllTodo = this.sortIndexAllTodo.sort(function(a,b){
               return b.name.localeCompare(a.name,'ja',{accent:true})
             })
-
+            break
+          case 8:
+            this.selectOrderRule = '優先度が高い順'
+            this.indexAllTodo = this.sortIndexAllTodo.sort(function(a,b){
+              return b.priority - a.priority
+            })
+            break
+            case 9:
+            this.selectOrderRule = '優先度が低い順'
+            this.indexAllTodo = this.sortIndexAllTodo.sort(function(a,b){
+              return a.priority - b.priority
+            })
             break
           default:
             this.selectOrderRule = '標準'
@@ -852,6 +872,12 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
           break 
           case 'TODO名降順':
              this.remainOrderRule(7)
+          break
+          case '優先度が高い順':
+              this.remainOrderRule(8)
+          break
+          case '優先度が低い順':
+              this.remainOrderRule(9)
           break
           default:
             this.remainOrderRule(1)

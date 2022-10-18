@@ -34,9 +34,13 @@ Route::post('/deleteUser', [App\Http\Controllers\TodosController::class, 'delete
 Route::post('/registerList', [App\Http\Controllers\TodosController::class, 'registerList'])->name('registerList');
 Route::post('/registerCategory', [App\Http\Controllers\TodosController::class,'registerCategory'])->name('registerCategory');
 Route::post('/registerTodo',[App\Http\Controllers\TodosController::class,'registerTodo'])->name('registerTodo');
+Route::post('/registerTodoWithImg',[App\Http\Controllers\TodosController::class,'registerTodoWithImg'])->name('registerTodoWithImg');
+
+
 
 /*データ更新機能*/
 Route::post('/updateTodo',[App\Http\Controllers\TodosController::class,'updateTodo'])->name('updateTodo');
+Route::post('/updateTodoWithImg',[App\Http\Controllers\TodosController::class,'updateTodoWithImg'])->name('updateTodoWithImg');
 Route::post('/updateList',[App\Http\Controllers\TodosController::class,'updateList'])->name('updateList');
 Route::post('/updateCategory',[App\Http\Controllers\TodosController::class,'updateCategory'])->name('updateCategory');
 Route::post('/deleteCategory',[App\Http\Controllers\TodosController::class,'deleteCategory'])->name('deleteCategory');
@@ -52,6 +56,7 @@ Route::get('/lists', [App\Http\Controllers\TodosController::class, 'indexList'])
 Route::post('/categorys', [App\Http\Controllers\TodosController::class, 'indexCategory'])->name('indexCategory');
 Route::post('/allCategorys', [App\Http\Controllers\TodosController::class, 'indexAllCategorys'])->name('indexAllCategorys');
 Route::post('/countAllTodo', [App\Http\Controllers\TodosController::class, 'countAllTodo'])->name('countAllTodo');
+Route::post('/getImg', [App\Http\Controllers\TodosController::class, 'getImgFile'])->name('getImgFile');
 
 /*tokenリセット */
 Route::get('/reflesh-token', function (Illuminate\Http\Request $request) {
