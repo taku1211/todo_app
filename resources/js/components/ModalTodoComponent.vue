@@ -37,7 +37,7 @@
           </div>
 
           <input class="modal-item modal-item-first modal-item-text border-none border-buttom" type="text" placeholder="タイトル" v-model="createTodo.name" ref="todoTitle">
-          <textarea  class="modal-item modal-item-last modal-item-text" name="name" rows="6" cols="80" maxlength="500" placeholder="メモ" v-model="createTodo.detail"></textarea>
+          <textarea  class="modal-item modal-item-last modal-item-text border-none" name="name" rows="6" cols="80" maxlength="500" placeholder="メモ" v-model="createTodo.detail"></textarea>
           <div v-if="registerErrors" >
                   <ul v-if="registerErrors.fileName" class="errors">
                       <li v-for="msg in registerErrors.fileName" :key="msg">{{ msg }}</li>
