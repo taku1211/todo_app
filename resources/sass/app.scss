@@ -75,9 +75,6 @@ input[type="text"]:focus {
   box-shadow: 0 0 2px 0 rgba(255,153,0,1);
   outline: 0;
 }
-textarea{
-  font-size: $font-size_default !important;
-}
 input[type="password"] {
   font-size: $font-size_default;
   border: 0;
@@ -96,6 +93,7 @@ input[type="submit"] {
 }
 textarea{
   cursor: pointer;
+  font-size: $font-size_default;
 }
 //================================
 //container
