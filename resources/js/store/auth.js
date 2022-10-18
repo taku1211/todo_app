@@ -17,8 +17,6 @@ const getters = {
 }
 const mutations = {
     setUser(state, user){
-        //console.log('setUser')
-        //console.log(user)
         state.user = user
     },
     setApiStatus(state, status){
@@ -41,10 +39,8 @@ const actions = {
             name: data.name,
             email: data.email,
             password: data.password, 
-            password_confirmation: data.password_confirmation,
-            
+            password_confirmation: data.password_confirmation,   
         }
-        //console.log(newData)
 
         context.commit('setApiStatus', null)
         const response = await axios.post('/api/register', newData)
@@ -61,7 +57,6 @@ const actions = {
         }else{
             context.commit('error/setCode', response.status, {root:true})
         }
-        
     },
     async login(context, data){
         const loginData= {
@@ -69,10 +64,7 @@ const actions = {
             password:data.password,
             remember:data.checked,
         }
-        //console.log(loginData)
-        //context.commit('setApiStatus', null)
         const response = await axios.post('/api/login', loginData)
-        //console.log(response.data)
 
         if(response.status === OK){
             context.commit('setApiStatus', true)
@@ -117,14 +109,12 @@ const actions = {
 
     },
     async csrfRefresh(context){
-        //const response = await axios.post('/api/logout')
         context.commit('setUser', null)
     },
     async currentUser(context, data){
             context.commit('setApiStatus', null)
             const response = await axios.post('/api/user', data).catch(err => err.response || error )
             const user = response.data || null
-
 
             if(response.status === OK){
                 context.commit('setUser', user)
@@ -133,14 +123,12 @@ const actions = {
             }
             context.commit('setApiStatus', false)
             context.commit('error/setCode', response.status, {root:true})
-            
     },
     async updateName(context, data){
         context.commit('setApiStatus',null)
         const updateName = {
             name: data.userName,
         } 
-        //console.log(updateName)
         const response = await axios.post('/api/updateName',updateName)
         if(response.status === OK){
             context.commit('setApiStatus', true)
@@ -154,15 +142,12 @@ const actions = {
         }else{
             context.commit('error/setCode', response.status, {root:true})
         }
-
-
     },
     async updateEmail(context, data){
         context.commit('setApiStatus',null)
         const updateEmail = {
             email: data.userEmail
         } 
-        //console.log(updateEmail)
 
         const response = await axios.post('/api/updateEmail',updateEmail)
         if(response.status === OK){
@@ -177,7 +162,6 @@ const actions = {
         }else{
             context.commit('error/setCode', response.status, {root:true})
         }
-
     },
     async updatePassword(context, data){
         context.commit('setApiStatus',null)
@@ -223,7 +207,6 @@ const actions = {
         }else{
             context.commit('error/setCode', response.status, {root:true})
         }
-
     },
 
 

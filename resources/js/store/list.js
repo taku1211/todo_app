@@ -6,11 +6,9 @@ const state = {
     apiStatus: null,
     registerErrorMessages: null,
     indexAllLists: null,
-
 }
 const getters = {
     indexAllLists:state=> state.indexAllLists ? state.indexAllLists: null
-
 }
 
 const mutations = {
@@ -37,8 +35,8 @@ const actions = {
             color: data.color,
             fixedFlg: data.fixedFlg,
             deleteFlg: data.deleteFlg,
-          }
-          //console.log(newList)
+        }
+
         context.commit('setApiStatus', null)
         const response = await axios.post('/api/registerList', newList)
 
@@ -66,7 +64,6 @@ const actions = {
             deleteFlg: data.deleteFlg,
           }
         context.commit('setApiStatus', null)
-        //console.log(updateList)
         const response = await axios.post('/api/updateList', updateList)
 
         if(response.status === OK){
@@ -104,7 +101,6 @@ const actions = {
         }else{
             context.commit('error/setCode', response.status, {root:true})
         }
-
     },
     async getAllLists(context){
         context.commit('setApiStatus', null)
@@ -155,11 +151,8 @@ const actions = {
         }else{
             context.commit('error/setCode', response.status, {root:true})
         }
-
     }
 }
-
-
 
 export default {
     namespaced: true,

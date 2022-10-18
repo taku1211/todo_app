@@ -78,7 +78,6 @@
         item.isChecked = !item.isChecked
           this.selectListName = item.name
           this.selectListId = item.id
-          //console.log(this.selectListId)
           await this.$store.dispatch('category/selectList', this.selectListId)
           await this.$store.dispatch('todo/selectList', this.selectListId)
           this.close()
