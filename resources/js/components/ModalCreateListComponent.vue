@@ -37,20 +37,6 @@
                </ul>
           </div>
 
-
-          <!--
-            <div class="modal-item" @click="showModalTodoCategory = true">
-             <div class="modal-item-left">
-               <p class="text">カテゴリー名</p>
-             </div>
-             <div class="list-item-right">
-               <p class="text text-gray">{{todoCategoryName}}</p>
-               <div class="angle-area">
-                 <i class="fa-solid fa-angle-right icon icon-angle"></i>
-               </div>
-             </div>
-          </div>
-          -->
           <div class="modal-item modal-item-grid">
             <div class="circle-area circle-area-grid circle-area-red icon-select" @click="selectIconColor = 'circle-area-red'"></div>
             <div class="circle-area circle-area-grid circle-area-pink icon-select" @click="selectIconColor = 'circle-area-pink'"></div>
@@ -209,12 +195,9 @@
         },
         updateName(){
           if(this.editListName != ''){
-            //console.log('はいった')
             this.createList.name = this.editListName
-            //console.log(this.createList.name)
             return this.createList.name
           }else{
-            //console.log('はいってない')
             return false
           }
         },
@@ -223,12 +206,9 @@
         },
         updateColor(){
           if(this.editListColor != ''){
-            //console.log('はいった')
             this.selectIconColor = this.editListColor
-            //console.log(this.selectIconColor)
             return this.selectIconColor
           }else{
-            //console.log('はいってない')
             return false
           }
         },        
@@ -245,7 +225,6 @@
         },
       },
       mounted:function(){
-        //console.log('mounted')
         this.updateName()
         this.updateColor()
 
@@ -257,7 +236,6 @@
 
       },
       beforeupdate:function(){
-        //console.log('beforeupdate')
         this.updateName()
       } , 
       components: {

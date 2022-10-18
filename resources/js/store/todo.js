@@ -1,4 +1,3 @@
-import { createTransformContext } from "@vue/compiler-core"
 import axios from "axios"
 import {OK, CREATED, UNPROCESSABLE_ENTITY} from "../util"
 
@@ -27,7 +26,6 @@ const  getters = {
     category: state=>state.category ? state.category: null,
     listType: state=>state.listType ? state.listType: '',
     orderRule: state=>state.orderRule ? state.orderRule:'標準',
-
 }
 const mutations = {
     setApiStatus(state, status){
@@ -120,7 +118,6 @@ const actions = {
                 }
             })
             context.commit('setExpiredTodoCounts',expiredTodoData.length)
-            
             return false
         }
         context.commit('setApiStatus', false)
@@ -134,19 +131,6 @@ const actions = {
     },
     async register(context, data){
         if(data.fileName !== ""){
-//            const newTodo = {
-//                name: data.name,
-//                userId: data.userId,
-//                listId: data.listId,
-//                categoryId: data.categoryId,
-//                detail: data.detail,
-//                todoDate: data.todoDate,
-//                todoTime: data.todoTime,
-//                cycle: data.cycle,
-//                place: data.place,
-//                priority: data.priority,
-//            }
-            
             const formData = new FormData()
             formData.append('fileName',data.fileName)
             formData.append('name',data.name)
@@ -289,7 +273,6 @@ const actions = {
             formData.append('databaseImg',data.databaseImg)
             formData.append('id',data.id)
 
-
             context.commit('setApiStatus', null)
             let config = {headers:{
                 'Content-Type' : 'multipart/form-data'
@@ -308,8 +291,6 @@ const actions = {
             }else{
                 context.commit('error/setCode', response.status, {root:true})
             }
-
-
         }else if(typeof(data.fileName) === 'string' || data.fileName === null){
             const editTodo = {
                 id: data.id,
@@ -343,17 +324,14 @@ const actions = {
                 
             }else{
                 context.commit('error/setCode', response.status, {root:true})
-            }
-    
+            }  
         }
-
     },
     
     registerListType(context, data){
         context.commit('setListType', data)
     }
 }
-
 
 export default {
     namespaced: true,

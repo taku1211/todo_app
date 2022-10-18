@@ -843,7 +843,6 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
 
       },
       changeOrderRule(rule){
-        //console.log(rule)
         this.indexAllTodo = this.$store.getters['todo/indexAllTodo']
 
         this.remainOrderRule(rule)
@@ -977,8 +976,6 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
         this.showTodoOrder = !this.showTodoOrder
       },
       search(text){
-        //console.log('search')
-        //console.log(text)
         this.indexAllTodo = this.$store.getters['todo/indexAllTodo']
         
         const searchIndexTodo = this.indexAllTodo.filter(function(todo){
@@ -1145,7 +1142,6 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
         await this.$store.dispatch('todo/update', todo)
       },
       deleteTodoPC:async function(todo){
-        //console.log('delete')
         todo.delete_flg = !todo.delete_flg
         await this.$store.dispatch('todo/update', todo)
 
@@ -1156,10 +1152,8 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
         this.listTypeSelect = this.listType
         this.getToday()
         if(this.showTodoDone){
-          //console.log('invisible')
           this.invisibleDeletedTodo()
         }else if(!this.showTodoDone){
-          //console.log('changeshowTodo')
           this.changeShowTodo()
         }
 
@@ -1176,10 +1170,6 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
         if(this.searchText !== ''){
           this.search(this.searchText)
         }
-        
-        
-        
-        
       },
       changeShowTodo:function(){
         if(this.searchText == ''){
@@ -1233,7 +1223,6 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
   },
 
     beforeUpdate:function(){
-      //console.log('beforeupdate')
       this.selectOrderRule = this.$store.getters['todo/orderRule']
       this.indexAllLists = this.$store.getters['list/indexAllLists']
       this.indexAllCategorys=this.$store.getters['category/indexAllCategorys']
@@ -1241,20 +1230,15 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
         this.listTypeSelect = this.listType
         this.getToday()
         if(this.showTodoDone){
-          //console.log('invisible')
           this.invisibleDeletedTodo()
         }else if(!this.showTodoDone){
-          //console.log('changeshowTodo')
           this.changeShowTodo()
         }
-        
     },
     updated:function(){
-      //console.log('updated')
     },
      watch: {
         $route(to, from) {
-          //console.log('watch')
         this.$store.dispatch('todo/count')
         this.indexAllTodo = this.$store.getters['todo/indexAllTodo']
 

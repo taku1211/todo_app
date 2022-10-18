@@ -156,7 +156,6 @@ import axios from 'axios';
     methods: {
       async deleteCategory(id){
         if(confirm('このカテゴリーを削除しますか？')){
-          //console.log(id)
           await this.$store.dispatch('category/delete',id)
           if(this.apiStatus){
             await this.fetchCategorys()
@@ -244,7 +243,6 @@ import axios from 'axios';
         if(this.apiStatus){
           await this.fetchCategorys() 
           await this.$store.dispatch('category/getAllCategorys')
-          //console.log(this.createCategory.name)
           this.createCategory.name =''
         }
         }else if(this.createCategoryFlg){
@@ -257,7 +255,6 @@ import axios from 'axios';
           if(this.apiStatus){
             await this.fetchCategorys()
             await this.$store.dispatch('category/getAllCategorys')
-            //console.log(this.createCategory.name)
             this.createCategory.name =''
 
             this.closeCreateCategory()
@@ -266,8 +263,6 @@ import axios from 'axios';
       },
       async fetchCategorys(){
         this.fetchListId = this.$store.getters['category/listId']
-        //console.log('fetchlistid')
-        //console.log( this.fetchListId)
         const data = {fetchListId: this.fetchListId}
         const response = await axios.post('/api/categorys', data)
         if(response.status !== 200){
@@ -392,7 +387,6 @@ import axios from 'axios';
         immediate:true
       }
     }
-
 
  }
 </script>

@@ -353,10 +353,6 @@
           reader.readAsDataURL(e.target.files[0])
           this.createTodo.fileName = e.target.files[0]
           this.databaseImg = ""
-
-          //const formData = new FormData()
-          //formData.append('photo',this.createTodo.fileName)
-          //this.createTodo.fileName = formData
         },
         reset () {
            this.imgPreview = null
