@@ -350,9 +350,11 @@ import axios from 'axios';
     },
     mounted: async function(){
       await this.fetchCategorys()
+      this.selectCategoryId = this.$store.getters['todo/category']
       for(var element of this.categorys){
-        if(element.name === this.todoCategoryName){
-          element.isChecked = true;
+        if(element.id === this.selectCategoryId){
+          console.log(element)
+          element.isChecked = true
         }
       }
       if(this.todoCategoryName === ""){

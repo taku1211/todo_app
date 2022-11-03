@@ -136,8 +136,9 @@
     },
     mounted: async function(){
        await this.fetchLists()
+       this.selectListId = this.$store.getters['todo/list']
       for(var element of this.lists){
-        if(element.name === this.todoListName){
+        if(element.id === this.selectListId){
           element.isChecked = true
         }       
       }
