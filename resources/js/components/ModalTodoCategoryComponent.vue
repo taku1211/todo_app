@@ -353,7 +353,6 @@ import axios from 'axios';
       this.selectCategoryId = this.$store.getters['todo/category']
       for(var element of this.categorys){
         if(element.id === this.selectCategoryId){
-          console.log(element)
           element.isChecked = true
         }
       }
