@@ -147,6 +147,9 @@
                 </div>
                 <h3 class="title title-category title-category-s-margin">リスト登録なし</h3>
               </div>
+              <div>
+                <i class="fa-solid fa-plus icon icon-s icon-select" @click="showModalTodo(noneCategory)"></i>
+              </div>
             </div>
                 <div v-for="todo in indexAllTodo" :key="todo.id" >
                     <div class="list-item list-item-task" v-if="todo.list_id === null"   :ref="todo.id"  
@@ -937,7 +940,8 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
         this.showUpdateTodo = true
       },
       async showModalTodo(category){
-        if(category != ''){
+        if(category !== ''){
+          console.log(category)
         await this.$store.dispatch('todo/selectCategory', category.id) 
         await this.$store.dispatch('todo/selectList', category.list_id)
         await this.$store.dispatch('category/selectList', category.list_id)
