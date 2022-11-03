@@ -139,6 +139,8 @@
        this.selectListId = this.$store.getters['todo/list']
       for(let i=0;i<this.lists.length;i++){
         if(this.lists[i]["id"] === this.selectListId){
+          console.log(this.selectListId)
+          console.log(this.lists[i]["id"])
         this.lists[i]["isChecked"] = true
         }       
       }

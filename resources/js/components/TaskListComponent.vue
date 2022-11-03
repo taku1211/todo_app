@@ -941,7 +941,6 @@ import ModalTodoCategoryComponent from "./ModalTodoCategoryComponent"
       },
       async showModalTodo(category){
         if(category !== ''){
-          console.log(category)
         await this.$store.dispatch('todo/selectCategory', category.id) 
         await this.$store.dispatch('todo/selectList', category.list_id)
         await this.$store.dispatch('category/selectList', category.list_id)
