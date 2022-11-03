@@ -272,14 +272,12 @@ import axios from 'axios';
         }
         if(response.status === 200){
           for(let i = 0; i<response.data.length; i++ ){
-
             if(response.data[i]["id"] === this.selectCategoryId){
               response.data[i]["isChecked"] = true
             }else{
               response.data[i]["isChecked"] = false
             }
 
-           response.data[i]["isChecked"] = false
            if(response.data[i]["color"] === 1){
               response.data[i]["color"] = "circle-area-red"
            }else if(response.data[i]["color"] === 2){
@@ -392,6 +390,7 @@ import axios from 'axios';
       categorys: {
         handler(){
           //何もしない
+          console.log(this.categorys)
         },
         deep: true,
       }
