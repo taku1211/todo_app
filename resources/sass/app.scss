@@ -98,6 +98,10 @@ textarea{
   -webkit-appearance: none;
   cursor: pointer;
   font-size: $font-size_default;
+  &:focus {
+    box-shadow: none !important; 
+    outline: 0;
+  }
 }
 //================================
 //container
