@@ -388,7 +388,14 @@ import axios from 'axios';
           await this.fetchCategorys()
         },
         immediate:true
+      },
+      categorys: {
+        handler(){
+          //何もしない
+        },
+        deep: true,
       }
+
     }
 
  }
