@@ -89,6 +89,7 @@
         }
       },
       async fetchLists(){
+        console.log('fetch')
         const response  = await axios.get('/api/lists') 
 
         if(response.status !== 200){
@@ -135,15 +136,17 @@
       ModalCreateListComponent,
     },
     mounted: async function(){
+      console.log('mount')
        await this.fetchLists()
        this.selectListId = this.$store.getters['todo/list']
       for(let i=0;i<this.lists.length;i++){
         if(this.lists[i]["id"] === this.selectListId){
           console.log(this.selectListId)
           console.log(this.lists[i]["id"])
-        this.lists[i]["isChecked"] = true
+          this.lists[i]["isChecked"] = true
         }       
       }
+      console.log(this.lists)
       if(this.todoListName === ""){
           this.selectListName = "選択したリスト名"
         }else{
@@ -153,9 +156,17 @@
     watch: {
       $route: {
         async handler(){
+          console.log('watch')
           await this.fetchLists()
         },
         immediate:true
+      },
+      lists: {
+        handler(){
+          console.log('change')
+          console.log(this.lists)
+        },
+        deep: true,
       }
     },
    }
