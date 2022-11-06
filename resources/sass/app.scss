@@ -65,6 +65,9 @@ label, input[type='checkbox'] {
 input[type="file"] {
   display:none;
 }
+input,textarea {
+  -webkit-appearance: none;
+}
 input[type="text"] {
   font-size: $font-size_default;
   border: 0;
@@ -92,8 +95,13 @@ input[type="submit"] {
   }
 }
 textarea{
+  -webkit-appearance: none;
   cursor: pointer;
   font-size: $font-size_default;
+  &:focus {
+    box-shadow: none !important; 
+    outline: 0;
+  }
 }
 //================================
 //container

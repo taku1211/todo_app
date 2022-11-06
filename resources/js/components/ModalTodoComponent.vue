@@ -155,7 +155,10 @@ import ModalTodoListComponent from "./ModalTodoListComponent.vue";
 
         this.showModalTodoDetail = true
       },
-      close(){
+      async close(){
+        await this.$store.dispatch('todo/selectCategory', '') 
+        await this.$store.dispatch('todo/selectList', '')
+        await this.$store.dispatch('category/selectList', '')
          this.showModalTodoDetail = false;
          this.$emit('close')
       },

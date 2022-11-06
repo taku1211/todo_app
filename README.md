@@ -1,64 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# TODO APP
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![picture 7](images/633fba4036ecf3b85c93ac11a8c9336d1cd24c6c2e3fdeb4ac6c3e2f838e1487.png)
+![picture 9](images/a2a132fb6a4d528b80fff3a121967169845c3177f2826136846877e87c686118.png)  
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+タスク管理アプリTODO APPです。  
+ラインのような操作感で、直感的にタスク管理を行うことができます。  
+レスポンシブ対応をしており、基本的にはスマートフォンやタブレットで使用することを想定しています。  
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+アプリの紹介スライドを下記URLに掲載しています。  
+READMEよりもわかりやすくまとめているので、ぜひご覧ください。  
+[TODOAPP概要説明スライドはこちらから](https://docs.google.com/presentation/d/125RA0qxAItJHc842spg2OiHWJuDqJvwK/edit?usp=sharing&ouid=115836892461911264304&rtpof=true&sd=true)  
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+  # デモ画面
 
-## Learning Laravel
+①SPAでの画面切り替え操作  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![TZSG2695 1](https://user-images.githubusercontent.com/93319825/200168428-3acc2ad4-2018-4f2d-952d-9bb6f37eae21.GIF)  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+②TODO追加画面  
 
-## Laravel Sponsors
+![OGYK6000 1](https://user-images.githubusercontent.com/93319825/200168750-d1722f7c-cae4-4686-870e-b8143a6839e3.GIF)  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+③TODO一覧画面操作  
 
-### Premium Partners
+![GEKG7335 1](https://user-images.githubusercontent.com/93319825/200168793-b6cef18e-f431-4286-af3b-9250e4f92848.GIF)  
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+③TODO検索操作  
 
-## Contributing
+![KJUF4892 1](https://user-images.githubusercontent.com/93319825/200168412-0b2dcd5a-d55a-4e3f-95a7-8be95f6424e6.GIF)  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# URL
 
-## Code of Conduct
+https://todos-app.com/  
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+下記のメールアドレスとパスワードで、ログインすることが可能です。  
+メールアドレス：demo@gmail.com  
+パスワード：demo0000  
 
-## Security Vulnerabilities
+# 使用技術
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ - PHP 7.4  
+ - Laravel 8.83  
+ - MySQL  
+ - Node.js 18.0  
+ - npm 8.6.0  
+ - Vue.js 2.6  
+ - Viex 3.2.1  
+ - Vue-router 3.5.4
+ - jQuery 3.6.0
+ - Apache  
+ - AWS 
+   - VPC
+   - EC2
+   - Route53
+   - RDS
+   - ALB
+   - ACM
+   - IAM
+   - S3  
+ - Google Maps API
+ - axios
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# AWS構成図
+
+![AWS構成図](images/3c8e0b3186ec4c6c6cc1b6c89006931828c484889a75004583dc42e80cfd3925.png)  
+
+
+# ER図
+
+![ER図](images/f851fb66c837c5cecfab1ecb30493bb19d49f93445b9534838d09d56bc54aac0.png)  
+
+
+
+# 機能一覧
+
+ - TODO追加・編集機能
+   - 詳細メモ追加機能
+   - リスト・カテゴリーの選択機能
+   - 各リスト・各カテゴリーからTODO追加した場合の、リスト・カテゴリーの自動紐づけ機能
+   - カレンダーによる日付選択機能
+   - TODOの時間選択機能
+   - 日付を選択した場合の、TODOの繰り返し設定機能（14種類から選択）
+   - 優先順位付け機能
+   - 場所選択・地図表示機能（GoogleMapAPI）
+   - 画像追加機能（AWS S3）
+   - 画像プレビュー機能  
+  
+  
+ - 認証機能
+   - ユーザー登録、ログイン機能
+   - ログアウト・退会機能
+   - アカウント情報編集機能
+   - パスワードリマインダー機能
+ - リスト・カテゴリーの追加・編集機能
+   - 表示アイコンカラー選択機能
+   - リスト・カテゴリー削除機能
+ - 画面UI
+   - ハンバーガーメニュー
+   - レスポンシブ対応
+   - transition機能
+   - フッターメニューでの画面遷移
+
+
+
+
+
+
+
+
+
+
+ 

@@ -263,6 +263,7 @@ import axios from 'axios';
       },
       async fetchCategorys(){
         this.fetchListId = this.$store.getters['category/listId']
+        this.selectCategoryId = this.$store.getters['todo/category']
         const data = {fetchListId: this.fetchListId}
         const response = await axios.post('/api/categorys', data)
         if(response.status !== 200){
@@ -271,8 +272,12 @@ import axios from 'axios';
         }
         if(response.status === 200){
           for(let i = 0; i<response.data.length; i++ ){
-            let data = response.data[i]
-           response.data[i]["isChecked"] = false
+            if(response.data[i]["id"] === this.selectCategoryId){
+              response.data[i]["isChecked"] = true
+            }else{
+              response.data[i]["isChecked"] = false
+            }
+
            if(response.data[i]["color"] === 1){
               response.data[i]["color"] = "circle-area-red"
            }else if(response.data[i]["color"] === 2){
@@ -350,11 +355,7 @@ import axios from 'axios';
     },
     mounted: async function(){
       await this.fetchCategorys()
-      for(var element of this.categorys){
-        if(element.name === this.todoCategoryName){
-          element.isChecked = true;
-        }
-      }
+ 
       if(this.todoCategoryName === ""){
         this.selectCategoryName = "選択したカテゴリー"
       }else{
@@ -385,7 +386,15 @@ import axios from 'axios';
           await this.fetchCategorys()
         },
         immediate:true
+      },
+      categorys: {
+        handler(){
+          //何もしない
+          console.log(this.categorys)
+        },
+        deep: true,
       }
+
     }
 
  }

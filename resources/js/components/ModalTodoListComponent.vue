@@ -90,6 +90,7 @@
       },
       async fetchLists(){
         const response  = await axios.get('/api/lists') 
+        this.selectListId = this.$store.getters['todo/list']
 
         if(response.status !== 200){
           this.$store.commit('error/setCode', response.status)
@@ -97,8 +98,13 @@
         }
         if(response.status === 200){
           for(let i = 0; i<response.data.length; i++ ){
-            let data = response.data[i]
-           response.data[i]["isChecked"] = false
+           
+            if(response.data[i]["id"] === this.selectListId){
+              response.data[i]["isChecked"] = true
+            }else{
+              response.data[i]["isChecked"] = false
+            }
+
            if(response.data[i]["color"] === 1){
               response.data[i]["color"] = "circle-area-red"
            }else if(response.data[i]["color"] === 2){
@@ -135,12 +141,7 @@
       ModalCreateListComponent,
     },
     mounted: async function(){
-       await this.fetchLists()
-      for(var element of this.lists){
-        if(element.name === this.todoListName){
-          element.isChecked = true
-        }       
-      }
+      await this.fetchLists()
       if(this.todoListName === ""){
           this.selectListName = "選択したリスト名"
         }else{
@@ -153,6 +154,12 @@
           await this.fetchLists()
         },
         immediate:true
+      },
+      lists: {
+        handler(){
+          //何もしない
+        },
+        deep: true,
       }
     },
    }
